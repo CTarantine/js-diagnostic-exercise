@@ -57,6 +57,26 @@ checkWithdraw.addEventListener("click", (event) => {
     }
 })
 
+let savingWithdraw = document.querySelector("#withdrawS")
+
+savingWithdraw.addEventListener("click", (event) => {
+    event.preventDefault();
+    let savingInput = parseFloat(document.querySelector("#inputS").value);
+    let savingBalance = parseFloat(document.querySelector("#balS").innerHTML);
+    let newBalance = savingBalance - savingInput;
+
+    if (newBalance > 0){
+        document.querySelector("#balS").innerHTML = newBalance;
+        // document.querySelector(".account").style.backgroundColor = "#6C9A74";
+    }
+
+    if (newBalance === 0){
+        //display zero balance
+        document.querySelector("#balS").innerHTML = 0;
+        //change display
+        document.querySelector(".account").className = "zero";
+    }
+})
 
 
 //javascript works
