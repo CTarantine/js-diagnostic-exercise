@@ -14,6 +14,27 @@ checkDeposit.addEventListener("click", (event) => {
     //replace text in balance box w/ updated balance
     document.querySelector("#balC").innerHTML = newBalance
 })
+
+
+let savingDeposit = document.querySelector("#depositS");
+
+//deposit click listener
+savingDeposit.addEventListener("click", (event) => {
+    event.preventDefault();
+    //grabs numeric value of typed input
+    let savingInput = parseFloat(document.querySelector("#inputS").value);
+    //grabs numeric value of displayed balance
+    let savingBalance = parseFloat(document.querySelector("#balS").innerHTML);
+    let newBalance = savingInput + savingBalance;
+    //console.log(newBalance);
+
+    //replace text in balance box w/ updated balance
+    document.querySelector("#balS").innerHTML = newBalance
+})
+
+
+
+
 //withdraw button for checking
 let checkWithdraw = document.querySelector("#withdrawC")
 
@@ -23,15 +44,16 @@ checkWithdraw.addEventListener("click", (event) => {
     let checkBalance = parseFloat(document.querySelector("#balC").innerHTML);
     let newBalance = checkBalance - checkInput;
 
+    if (newBalance > 0){
+        document.querySelector("#balC").innerHTML = newBalance;
+        // document.querySelector(".account").style.backgroundColor = "#6C9A74";
+    }
+
     if (newBalance === 0){
         //display zero balance
         document.querySelector("#balC").innerHTML = 0;
         //change display
         document.querySelector(".account").className = "zero";
-    }
-
-    if (newBalance > 0){
-        document.querySelector("#balC").innerHTML = newBalance
     }
 })
 
