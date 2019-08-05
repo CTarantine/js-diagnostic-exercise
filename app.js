@@ -1,7 +1,7 @@
 //deposit button for checking
 let checkDeposit = document.querySelector("#depositC");
 
-//deposit click listener
+//checking deposit click listener
 checkDeposit.addEventListener("click", (event) => {
     event.preventDefault();
     //grabs numeric value of typed input
@@ -18,7 +18,7 @@ checkDeposit.addEventListener("click", (event) => {
 
 let savingDeposit = document.querySelector("#depositS");
 
-//deposit click listener
+// saving deposit click listener
 savingDeposit.addEventListener("click", (event) => {
     event.preventDefault();
     //grabs numeric value of typed input
@@ -44,19 +44,20 @@ checkWithdraw.addEventListener("click", (event) => {
     let checkBalance = parseFloat(document.querySelector("#balC").innerHTML);
     let newBalance = checkBalance - checkInput;
 
-    if (newBalance > 0){
+    if (newBalance > 0) {
         document.querySelector("#balC").innerHTML = newBalance;
         // document.querySelector(".account").style.backgroundColor = "#6C9A74";
     }
 
-    if (newBalance === 0){
+    if (newBalance === 0) {
         //display zero balance
         document.querySelector("#balC").innerHTML = 0;
         //change display
-        document.querySelector(".account").className = "zero";
+        document.querySelector("#checking").className = "zero";
     }
 })
 
+//withdraw for savings
 let savingWithdraw = document.querySelector("#withdrawS")
 
 savingWithdraw.addEventListener("click", (event) => {
@@ -65,19 +66,18 @@ savingWithdraw.addEventListener("click", (event) => {
     let savingBalance = parseFloat(document.querySelector("#balS").innerHTML);
     let newBalance = savingBalance - savingInput;
 
-    if (newBalance > 0){
+    if (newBalance > 0) {
         document.querySelector("#balS").innerHTML = newBalance;
-        // document.querySelector(".account").style.backgroundColor = "#6C9A74";
     }
 
-    if (newBalance === 0){
+    if (newBalance === 0) {
         //display zero balance
         document.querySelector("#balS").innerHTML = 0;
         //change display
-        document.querySelector(".account").className = "zero";
+        document.querySelector("#savings").className = "zero";
     }
 })
 
 
 //javascript works
-document.body.style.backgroundColor = "red";
+//document.body.style.backgroundColor = "red";
