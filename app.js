@@ -1,15 +1,19 @@
-const checkDeposit = document.querySelector("#depositC")
-const checkInput = document.querySelector("#inputC")
-const checkBalance = document.querySelector("#balC")
 
+let checkDeposit = document.querySelector("#depositC");
 
 //deposit click listener
 checkDeposit.addEventListener("click", (event) => {
-event.preventDefault();
-checkBalance.innerHTML = `$${checkInput.value}`;
-//console.log(checkInput.value)
-    //console.log("Hello from app.js")
+    event.preventDefault();
+    let checkInput = parseInt(document.querySelector("#inputC").value);
+    let checkBalance = parseInt(document.querySelector("#balC").innerHTML);
+    let newBalance = checkInput + checkBalance;
+    //console.log(newBalance);
+
+    //replace text in balance box w/ updated balance
+    document.querySelector("#balC").innerHTML = newBalance
 })
+
+
 
 //javascript works
 document.body.style.backgroundColor = "red";
